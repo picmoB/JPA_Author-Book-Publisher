@@ -37,21 +37,30 @@ public class Main {
         Set<Book> bookSet = new HashSet<>();
         bookSet.add(book1);
         bookSet.add(book2);
-        em.persist(bookSet);
+        // em.persist(bookSet);
 
         // Publisher
         Publisher publisher1 = new Publisher("Publisher1", bookSet);
         savePublisher(publisher1);
 
+        /* ispis svih knjiga (provjera) */
+        for (Book book : bookSet) {
+            System.out.println(book.getTitle());
+        }
+
         // Metode
         getAllAuthorsAndBooks();
+
+        updateBookTitle(book2, "Book5");
+
+        deleteBook(book2);
 
         tx.commit();
         em.close();
         emf.close();
     }
 
-    public  static void saveAuthor(Author author){
+    public static void saveAuthor(Author author){
         EntityManager em = JpaUtil.getEntityManager();
 
         try {

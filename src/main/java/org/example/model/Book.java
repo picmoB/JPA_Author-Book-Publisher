@@ -25,7 +25,7 @@ public class Book {
     private Set<Publisher> publishers = new HashSet<>();
 
     // CONSTRUCTOR
-    // public Book() {}
+    public Book() {}
 
     public Book(String title, Author author) {
         this.title = title;
